@@ -1,0 +1,5 @@
+link_0 hinge lever
+link_1 hinge lever
+link_2 hinge lever
+link_3 hinge lever
+link_4 static switch_frame

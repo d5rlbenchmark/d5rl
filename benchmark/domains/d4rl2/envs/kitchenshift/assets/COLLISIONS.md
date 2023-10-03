@@ -1,0 +1,1 @@
+# see https://github.com/openai/robogym/blob/master/robogym/assets/xmls/robot/ur16e/collisions.md

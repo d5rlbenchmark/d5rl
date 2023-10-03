@@ -1,0 +1,4 @@
+python scripts/scripted_collect.py -e PutBallintoBowlDiverse-v0 -pl pickplacemiss -n 1000 -t 25 -d /nfs/kun2/users/asap7772/miss_data_v2/placewith0.1_diverse/ -a place_success_target --noise 0.1 --save-all --p_place_correct 0.1 &
+python scripts/scripted_collect.py -e PutBallintoBowl-v0 -pl pickplacemiss -n 1000 -t 25 -d /nfs/kun2/users/asap7772/miss_data_v2/placewith0.1/ -a place_success_target --noise 0.1 --save-all --p_place_correct 0.1 &
+python scripts/scripted_collect.py -e PutBallintoBowlDiverse-v0 -pl pickplacemiss -n 1000 -t 25 -d /nfs/kun2/users/asap7772/miss_data_v2/placewith0.05_diverse/ -a place_success_target --noise 0.1 --save-all --p_place_correct 0.05 &
+python scripts/scripted_collect.py -e PutBallintoBowl-v0 -pl pickplacemiss -n 1000 -t 25 -d /nfs/kun2/users/asap7772/miss_data_v2/placewith0.05/ -a place_success_target --noise 0.1 --save-all --p_place_correct 0.05 &

@@ -1,0 +1,43 @@
+<!-- ctrlrange given by <limit>
+see https://github.com/bulletphysics/bullet3/blob/0e124cb2f103c40de4afac6c100b7e8e1f5d9e15/examples/pybullet/gym/pybullet_data/franka_panda/panda.urdf
+and https://frankaemika.github.io/docs/control_parameters.html#constants
+
+Changes:
++ increase gain for gripper fingers, kp=500 -> kp=1350. This allows the gripper 
+to open/close faster, which is easier for non-recurrent policies to control
+and results in better performance (ie. opening microwave)
++ fix limits for joint4 and joint6 in franka2/franka_panda.xml
++ fix actuator limits for joint6 in franka2/actuator0.xml
+
+? revert the capsules back to meshes for the fingers
+
+-->
+<include>
+    <!-- =================================================
+    Copyright 2018 Vikash Kumar
+    Model   :: Franka (MuJoCoV2.0)
+    Author  :: Vikash Kumar (vikashplus@gmail.com)
+    source  :: https://github.com/vikashplus/franka_sim
+    License :: Under Apache License, Version 2.0 (the "License"); you may not use this file except
+    in compliance with the License. You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to
+    in writing, software distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ====================================================== -©vk©-->
+    <size nuser_actuator="5"/>
+    <!-- user="pos_min pos_max vel_max pos_noise_amp vel_noise_amp" -->
+
+    <actuator>
+        <position name="panda0_joint1" joint="panda0_joint1" class="panda" kp="870" forcerange="-87 87" ctrlrange="-2.9671 2.9671" user="-2.9671 2.9671 2.1750 0.1 0.1"/>
+        <position name="panda0_joint2" joint="panda0_joint2" class="panda" kp="870" forcerange="-87 87" ctrlrange="-1.8326 1.8326" user="-1.8326 1.8326 2.1750 0.1 0.1"/>
+        <position name="panda0_joint3" joint="panda0_joint3" class="panda" kp="870" forcerange="-87 87" ctrlrange="-2.9671 2.9671" user="-2.9671 2.9671 2.1750 0.1 0.1"/>
+        <position name="panda0_joint4" joint="panda0_joint4" class="panda" kp="870" forcerange="-87 87" ctrlrange="-3.1416 0.0" user="-3.1416 0.0 2.1750 0.1 0.1"/>
+        <position name="panda0_joint5" joint="panda0_joint5" class="panda" kp="120" forcerange="-12 12" ctrlrange="-2.9671 2.9671" user="-2.9671 2.9671 2.6100 0.1 0.1"/>
+        <position name="panda0_joint6" joint="panda0_joint6" class="panda" kp="120" forcerange="-12 12" ctrlrange="-0.0873 3.8223" user="-0.0873 3.8223 2.6100 0.1 0.1"/>
+        <position name="panda0_joint7" joint="panda0_joint7" class="panda" kp="120" forcerange="-12 12" ctrlrange="-2.9671 2.9671" user="-2.9671 2.9671 2.6100 0.1 0.1"/>
+        <position name="r_gripper_finger_joint" joint="panda0_finger_joint1" class="panda_finger" kp="1350" forcerange="-70 70" ctrlrange="0 0.04" user="0 0.04 0.2 0.1 0.1"/>
+        <position name="l_gripper_finger_joint" joint="panda0_finger_joint2" class="panda_finger" kp="1350" forcerange="-70 70" ctrlrange="0 0.04" user="0 0.04 0.2 0.1 0.1"/>
+    </actuator>
+</include>

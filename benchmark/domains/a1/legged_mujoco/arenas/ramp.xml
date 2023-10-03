@@ -1,0 +1,11 @@
+<mujoco model='ramp'>
+	<asset>
+		 <mesh file="ramp.stl" name="ramp" scale="15.0 5.0 1.5"/>
+		 <material name="rampmat" specular="1" shininess=".3" reflectance="0" rgba="0.0 0.5 1.0 1.0"/>
+	</asset>
+	<worldbody>
+		<body name="ramp" pos="0.25 0.25 0.25">
+			<geom name="ramp" pos="0 0 0" type="mesh" mesh="ramp" mass="1.0" material="rampmat"/>
+		</body>
+	</worldbody>
+</mujoco>

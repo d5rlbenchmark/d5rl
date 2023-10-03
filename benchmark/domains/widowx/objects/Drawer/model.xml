@@ -1,0 +1,27 @@
+<mujoco model="bowl">
+  <compiler autolimits="true" />
+  <asset>
+    <mesh name="tray_textured4_no_color" file="tray_textured4_no_color.obj" scale="1.1 0.9 1.4" />
+  </asset>
+  <worldbody>
+    <body name="model">
+      <geom size="0.75 0.65 0.05" pos="0 0 0.3" type="box" />
+      <geom size="0.75 0.025 0.3" pos="0 0.65 0" type="box" />
+      <geom size="0.025 0.65 0.3" pos="0.75 0 0" type="box" />
+      <geom size="0.025 0.65 0.3" pos="-0.75 0 0" type="box" />
+      <body name="base" pos="0 0 -0.1">
+        <inertial pos="0 -0.625 0.075" quat="0.0351545 0.706232 0.0351545 0.706232" mass="0.4" diaginertia="4.14787 4.08463 4.0635" />
+        <joint name="base_frame_joint" pos="0 0 0" axis="0 1 0" type="slide" range="-1.25 0" frictionloss="0.01"  solreflimit="0.002 1" solimplimit="0.95 0.99 0.001" />
+        <geom size="0.7 0.6 0.05" pos="0 0 -0.2" type="box" />
+        <geom size="0.7 0.025 0.2" pos="0 -0.6 0" type="box" />
+        <geom size="0.7 0.025 0.2" pos="0 0.6 0" type="box" />
+        <geom size="0.025 0.6 0.2" pos="0.7 0 0" type="box" />
+        <geom size="0.025 0.6 0.2" pos="-0.7 0 0" type="box" />
+        <geom pos="0 0 -0.15" quat="0.000796327 0 0 -1" type="mesh" rgba="1 1 1 1" mesh="tray_textured4_no_color" />
+        <geom size="0.025 0.3 0.09" pos="-0.65 -0.7 0.1" type="box" rgba="0.93 0.6 0.23 1" />
+        <geom size="0.025 0.3 0.09" pos="0.65 -0.7 0.1" type="box" rgba="0.93 0.6 0.23 1" />
+        <geom size="0.08 0.7" pos="0 -1.1 0.1" quat="0.707388 0 0.706825 0" type="cylinder" rgba="0.93 0.6 0.23 1" />
+      </body>
+    </body>
+  </worldbody>
+</mujoco>

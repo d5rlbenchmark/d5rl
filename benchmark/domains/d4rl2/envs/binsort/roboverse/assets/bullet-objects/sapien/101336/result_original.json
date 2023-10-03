@@ -1,0 +1,1 @@
+[{"id": 0, "name": "Dispenser", "text": "Dispenser", "children": [{"id": 4, "name": "pressing_lid", "text": "pressing_lid", "objs": ["original-5"]}, {"id": 5, "name": "other", "text": "head (other)", "children": [{"id": 6, "name": "other_leaf", "text": "other_leaf", "objs": ["original-4", "original-6", "original-3"]}]}]}]

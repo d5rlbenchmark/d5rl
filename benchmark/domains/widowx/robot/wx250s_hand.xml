@@ -1,0 +1,73 @@
+<mujoco model="wx250s">
+    <compiler angle="radian" meshdir="models/" texturedir="images/" />
+    <size njmax="500" nconmax="100" />
+    <asset>
+        <mesh name="WXSA-250-M-8-Gripper-Prop" file="WXSA-250-M-8-Gripper-Prop.stl" scale="0.001 0.001 0.001" />
+        <mesh name="WXSA-250-M-9-Gripper-Bar" file="WXSA-250-M-9-Gripper-Bar.stl" scale="0.001 0.001 0.001" />
+        <mesh name="WXSA-250-M-10-Finger" file="WXSA-250-M-10-Finger.stl" scale="0.001 0.001 0.001" />
+        <texture name="texture" type="2d" file="interbotix_black.png" />
+        <texture name="skybox" type="skybox" builtin="gradient" rgb1=".4 .6 .8" rgb2="0 0 0" width="800" height="800" mark="random" markrgb="1 1 1" />
+        <material name="mat_texture" texture="texture" />
+        <material name="black" rgba="0.15 0.15 0.15 1.0" />
+        <material name="red" rgba="0.15 0.15 0.15 1.0" />
+        <material name="grey" rgba="0.15 0.15 0.15 1.0" />
+    </asset>
+    <default>
+        <site rgba="0 0 0 0" />
+        <joint frictionloss='0.1' armature='1' damping='0.1' />
+        <velocity kv="10" ctrllimited="true" ctrlrange="-1 1" forcelimited='true' forcerange='-10 10' />
+        <geom solref="0.002 1" solimp="0.95 0.99 0.001" rgba="0.15 0.15 0.15 1" conaffinity="1" friction="1.0 0.1 0.001" contype="1" condim="6" margin="-0.001" />
+    </default>
+    <worldbody>
+        <body name="ee_arm_link" pos="0.043 0 0">
+            <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+            <body name="gripper_prop_link" pos="0.0055 0 0">
+                <inertial pos="0.000846 -1.6817e-06 4.2e-05" quat="-0.000544073 -0.000402553 -0.376169 0.926551" mass="0.00434" diaginertia="1.1156e-06 9.02926e-07 2.63673e-07" />
+                <geom pos="-0.0685 0 0" quat="0.707107 0 0 0.707107" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="WXSA-250-M-8-Gripper-Prop" />
+                <geom pos="-0.0685 0 0" quat="0.707107 0 0 0.707107" type="mesh" mesh="WXSA-250-M-8-Gripper-Prop" />
+            </body>
+            <body name="gripper_bar_link" pos="0 0 0">
+                <inertial pos="0.009687 8.177e-07 0.004962" quat="-0.649086 0.649055 0.280557 0.28054" mass="0.034199" diaginertia="2.99065e-05 2.71235e-05 7.4125e-06" />
+                <geom pos="-0.063 0 0" quat="0.707107 0 0 0.707107" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="WXSA-250-M-9-Gripper-Bar" />
+                <geom pos="-0.063 0 0" quat="0.707107 0 0 0.707107" type="mesh" mesh="WXSA-250-M-9-Gripper-Bar" />
+                <body name="fingers_link" pos="0.023 0 0">
+                    <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+                    <body name="left_finger_link" pos="0 0 0">
+                        <inertial pos="0.013816 0 0" quat="0.463902 0.463902 -0.533661 -0.533661" mass="0.016246" diaginertia="4.79509e-06 3.7467e-06 1.48651e-06" />
+                        <joint name="left_finger" pos="0 0 0" axis="0 1 0" type="slide" limited="true" range="0.015 0.037" />
+                        <geom pos="0 0.005 0" quat="0 0 0 -1" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="WXSA-250-M-10-Finger" />
+                        <geom name="left_finger" pos="0 0.005 0" quat="0 0 0 -1" type="mesh" mesh="WXSA-250-M-10-Finger" />
+                        <site name="left_finger_ee" pos="0.035 -0.01 0" />
+                    </body>
+                    <body name="right_finger_link" pos="0 0 0">
+                        <inertial pos="0.013816 0 0" quat="0.463902 -0.463902 0.533661 -0.533661" mass="0.016246" diaginertia="4.79509e-06 3.7467e-06 1.48651e-06" />
+                        <joint name="right_finger" pos="0 0 0" axis="0 1 0" type="slide" limited="true" range="-0.037 -0.015" />
+                        <geom pos="0 -0.005 0" quat="0 0 1 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="WXSA-250-M-10-Finger" />
+                        <geom name="right_finger" pos="0 -0.005 0" quat="0 0 1 0" type="mesh" mesh="WXSA-250-M-10-Finger" />
+                        <site name="right_finger_ee" pos="0.035 0.01 0" />
+                    </body>
+                    <body name="ee_gripper_link" pos="0.027575 0 0">
+                        <site name="gripper_ee" pos="0 0 0" />
+                        <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+                    </body>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+    <tendon>
+        <fixed name="split">
+            <joint joint="left_finger" coef="1"/>
+            <joint joint="right_finger" coef="-1"/>
+        </fixed>
+    </tendon>
+    <equality>
+        <joint joint1="right_finger" joint2="left_finger" polycoef="0 -1 0 0 0" solimp="0.95 0.99 0.001" solref="0.005 0.5"/>
+    </equality>
+    <actuator>
+        <velocity name="finger_actuator" tendon="split" />
+    </actuator>
+    <contact>
+        <exclude body1='gripper_bar_link' body2='left_finger_link' />
+        <exclude body1='gripper_bar_link' body2='right_finger_link' />
+    </contact>
+</mujoco>

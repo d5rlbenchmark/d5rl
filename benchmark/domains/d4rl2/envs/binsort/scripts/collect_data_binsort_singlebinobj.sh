@@ -1,0 +1,5 @@
+# python scripts/scripted_collect.py -e BinSortSingleObjBinObj-v0 -pl binsort -n 1000 -t 35 -d ./data/redmultview_pickplacedata_noise0.02 -a place_success_target --noise 0.1 --gui
+python scripts/scripted_collect.py -e BinSortSingleObjBinObj-v0 -pl binsort -n 1000 -t 35 -d ./data/binsort_binper1 -a place_success_target --noise 0.1 --save-all &
+python scripts/scripted_collect.py -e BinSortSingleObjBinObj-v0 -pl binsort -n 1000 -t 35 -d ./data/binsort_binper0.8 -a place_success_target --noise 0.1 --save-all --p_place_correct 0.8 &
+python scripts/scripted_collect.py -e BinSortSingleObjBinObj-v0 -pl binsort -n 1000 -t 35 -d ./data/binsort_binper0.5 -a place_success_target --noise 0.1 --save-all --p_place_correct 0.5 &
+python scripts/scripted_collect.py -e BinSortSingleObjBinObj-v0 -pl binsort -n 1000 -t 35 -d ./data/binsort_binper0.2 -a place_success_target --noise 0.1 --save-all --p_place_correct 0.2 &

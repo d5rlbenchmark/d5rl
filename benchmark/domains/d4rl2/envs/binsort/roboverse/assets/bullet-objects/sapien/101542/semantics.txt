@@ -1,0 +1,3 @@
+link_0 hinge nose
+link_1 slider+ lid
+link_2 free dispenser_body

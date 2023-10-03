@@ -1,0 +1,1 @@
+from jaxrl2.agents.kitchen_agents.pixel_ddpm_bc.pixel_ddpm_bc_learner import PixelDDPMBCLearner
